@@ -1,5 +1,6 @@
-import { getAuth, onAuthStateChanged, signInAnonymously } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js'
 import { app } from './init.js'
+
+import { getAuth, onAuthStateChanged, signInAnonymously } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js'
 
 const auth = getAuth(app)
 
