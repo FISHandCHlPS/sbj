@@ -1,0 +1,100 @@
+body {
+    font-family:'メイリオ','Yu Gothic','Yu Gothic Medium','MS ゴシック','游ゴシック Medium',sans-serif;
+}
+.playButton{
+    width:220px;
+    padding:15px;
+    margin:10px 30px;
+    background-color:rgba(15,142,174,0.1);
+    font-weight:bold;
+}
+.playButtonRec{
+    width:220px;
+    padding:15px;
+    margin:10px 30px;
+    background-color:rgba(173,16,63,0.1);
+    font-weight:bold;
+}
+.rule{
+    display:flex;
+}
+.rule .image{
+    width:550px;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    position:relative;
+}
+.rule .text{
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+.Cards {
+    display:flex;
+    justify-content: center;
+    align:center;
+    margin:30px;
+}
+.frontHouse{
+    width: 63px;
+    height: 88px;
+    font-weight:bold;
+    border: 2px solid #454545;
+    background-color:#D5C7BC;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.2)
+    text-align:center;
+    line-height:88px;
+    margin:10px 20px;
+}
+.frontPlayer{
+    width: 63px;
+    height: 88px;
+    font-weight:bold;
+    border: 2px solid #454545;
+    background-color:#F1FFFA;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.2)
+    text-align:center;
+    line-height:88px;
+    margin:10px 20px;
+}
+.back{
+    width: 63px;
+    height: 88px;
+    border: 2px solid #454545;
+    background-color: #454545;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.2)
+    text-align:center;
+    line-height:88px;
+    margin:10px 20px;
+}
+.cardName{
+    width: 200px;
+    height: 88px;
+    text-align:center;
+    line-height:88px;
+    margin:10px 20px;
+}
+.resultName{
+    width: 200px;
+    height: 30px;
+    margin: 5px 30px;
+    text-align:center;
+    line-height:30px;
+}
+.result{
+    font-size:30px;
+    font-weight:bold;
+    margin:0px;
+}
+#resultWord_red{
+    color:rgba(173,16,63,1);
+}
+#resultWord_blue{
+    color:rgba(15,142,174,1);
+}
+.numPoint{
+    height:30px;
+    font-size:30px;
+    font-weight:bold;
+    margin:10px 30px;
+}

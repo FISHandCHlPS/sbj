@@ -1,7 +1,7 @@
 import { app } from './init.js'
 import { uid } from './auth.js'
 
-import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js'
+import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js'
 const db = getFirestore(app)
 
 document.getElementById('send_button').addEventListener('click', async () => {
