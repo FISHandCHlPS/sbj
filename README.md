@@ -1,4 +1,4 @@
-# Firebase を利用したプロジェクト作成
+# SBJ by Firebase
 
 ## ファイル構成
 main.py  Flaskコード。現在はルーティングもこのファイル
