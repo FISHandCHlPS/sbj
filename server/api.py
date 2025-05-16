@@ -13,7 +13,6 @@ api = responder.API()
 db = Database()
 
 # 全部POSTで呼び出される
-
 @api.route('/api/start')
 async def start(req, resp):
     data = await req.media()
@@ -58,7 +57,7 @@ async def finish(req, resp):
     status['done'][exp_type] += 1
     db.put_multi([user_data, status])
     resp.media = dict(uid=user_data.key.name)
-    
+
 
 @api.route('/api/session')
 async def session(req, resp):

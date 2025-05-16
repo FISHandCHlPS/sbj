@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/game.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+    <meta charset="UTF-8">
+    <title>Simplified Black Jack</title>
+</head>
+
+<body>
+    <div>
+        <div class="Cards" align='center'>
+            <div class="cardName">相手の手札</div>
+            <div id="houseCard1Front" class="frontHouse"></div>
+            <div id="houseCard1Back" class="back"></div>
+            <div id="houseCard2Front" class="frontHouse"></div>
+            <div id="houseCard2Back" class="back"></div>
+        </div>
+        <div id="resultWord_red" class="result" align="center">勝ち！</div>
+        <div id="resultWord_blue" class="result" align="center">負け...</div>
+        <div id="resultWord" class="result" align="center"></div>
+        <div class="Cards" align='center'>
+            <div class="cardName">自分の手札</div>
+            <div id="playerCard1Front" class="frontPlayer"></div>
+            <div id="playerCard1Back" class="back"></div>
+            <div id="playerCard2Front" class="frontPlayer"></div>
+            <div id="playerCard2Back" class="back"></div>
+        </div>
+        <div class="Cards" align='center'>
+            <div class="resultName">現在のスコア : </div>
+            <div id="numPoint" class="numPoint"></div>
+            <div class="resultName">現在のセッション : </div>
+            <div id="num_iter" class="numPoint"></div>
+        </div>
+        <div class="Cards" align="center">
+            <button disabled id="betNormal" class='playButton'>勝負する</button>
+            <button disabled id="betRec" class='playButtonRec'>勝負する（おすすめ）</button>
+            <button disabled id="foldNormal" class='playButton'>勝負から降りる</button>
+            <button disabled id="foldRec" class='playButtonRec'>勝負から降りる（おすすめ）</button>
+        </div>
+    </div>
+    <div align="center">
+        <a class="playButton" href="{{ url_for('interrupt') }}">実験を中断する</a>
+    </div>
+</body>
+
+</html>

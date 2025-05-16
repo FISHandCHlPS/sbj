@@ -1,4 +1,21 @@
-# Firebase を利用したプロジェクト作成
+# SBJ by Firebase
+
+## ファイル構成
+main.py  Flaskコード。現在はルーティングもこのファイル
+- static
+  - css
+  - js   各画面に対応したjsファイル。aタグで遷移するだけならgame.js以外いらない
+    - start.js
+    - rule.js
+    - game.js
+    - interrupt.js
+    - end.js
+- templates
+  - start.html   実験開始画面
+  - rule.html    ルール説明画面
+  - game.html    ゲーム画面
+  - interrupt.html  中断画面
+  - end.html     実験終了画面
 
 ## 準備
 - firebase の project 作成
@@ -33,26 +50,6 @@ local の 8080 ポートにアクセス
 ### デプロイ
 ```
 firebase deploy --only hosting
-```
-
-## App Engine
-
-### 必要ファイル
-- app.yaml
-- requirements.txt
-- main.py
-
-### テスト環境で実行
-```
-dev_appserver.py app.yaml
-```
-
-#### ブラウズ
-local の 8080 ポートにアクセス
-
-### デプロイ
-```
-gcloud app deploy
 ```
 
 ## Cloud Run

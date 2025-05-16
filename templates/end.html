@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/end.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/end.css') }}">
+    <meta charset="UTF-8">
+    <title>Simplified Black Jack</title>
+</head>
+
+<body>
+    <div align='center'>
+        <p>実験にご協力いただきありがとうございました！</p>
+        <p>ボタンを押すとあなたのユーザーIDが表示されます。</p>
+        <button disabled id="finish" class="playButton">ユーザーIDを表示する</button>
+        <hr><br>
+        <p>あなたのユーザーID</p>
+        <div id="YourId" class="result"></div>
+        <p>あなたのスコア</p>
+        <div id="finalScore" class="result"></div>
+    </div>
+</body>
+
+</html>
