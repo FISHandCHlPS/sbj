@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/rule.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rule.css') }}">
+    <meta charset="UTF-8">
+    <title>Simplified Black Jack</title>
+</head>
+
+<body>
+    <div align='center'>
+        <h2>ルール説明</h2>
+        <p>ルールは以下の通りです。ルールを理解できたら「ゲームへ進む」ボタンを押してください。<br>
+            また実験を中断したい場合は「実験を中断する」ボタンを押して終了してください。</p>
+    </div>
+
+    <div class='rule'>
+        <p class='text'>
+            <ol>
+                <li>あなたと対戦相手には、それぞれ1から9が書かれたカードが<br>
+                    2枚ずつ入っている山札から2枚のカードが配られます。</li>
+                <br>
+                <li>このときあなたは対戦相手の1枚目のカードを見ることができます。</li>
+                <br>
+                <li>配られたカードに書かれた数字を足し合わせた数の大きさで<br>
+                    あなたと対戦相手は競います。</li>
+                <br><br>
+                <li>各セッションでは「勝負する」か「勝負から降りる」を選択してください。</li>
+                <br>
+                <ul>
+                    <li>
+                        「勝負する」を選択した場合、相手の2枚目のカードも開示され<br>
+                        勝負に決着がつきます。
+                    </li><br>
+                    <li>
+                        あなたの2枚のカードの和が対戦相手よりも大きい場合は<br>
+                        <font size="+1">100</font>ポイントを獲得し、逆に小さい場合は<font size="+1">70</font>ポイント失います。<br>
+                        あなたと対戦相手の2枚のカードの和が等しい場合は<font size="+1">30</font>ポイント失います。<br>
+                    </li>
+                    <br>
+                    <li>「勝負から降りる」を選択した場合、<font size="+1">30</font>ポイントを失います。</li>
+                </ul>
+                <br>
+                <li>あなたは、はじめ<font size="+1">1000</font>ポイントを所持しています。</li>
+                <br>
+                <li>この勝負を100回繰り返して所持ポイントをできるだけ増やしてください。</li>
+            </ol>
+            <br>
+        </p>
+        <figure class='image'><img src="/static/rule_figure.png" width=550px></figure>
+    </div>
+
+    <div align='center' class="Cards">
+        <a class="playButton" href="{{ url_for('game') }}"> ゲームへ進む </a>
+    </div>
+</body>
+
+</html>

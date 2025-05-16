@@ -1,9 +1,115 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script type="module" src="/scripts/main.js"></script>
-  </head>
-  <body>
-    <button type="button" id="send_button">SEND</button>
-  </body>
+    <head>
+        <title>Simplified Black Jack</title>
+        <link rel="icon" href="data:,">
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css">
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+        <script src="/static/client.js"></script>
+        <link type="text/css" rel="stylesheet" href="/static/style.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1 align='center'>Simplified BlackJack</h1>
+        <div id="disp1" align='center'>
+            <p>実験に関する注意事項はクラウドワークスに記載してあります。</p>
+            <p>よろしければ以下のボタンを押して実験を始めてください。</p>
+            <button disabled id="start" class="playButton">同意して実験を開始する</button>
+        </div>
+        <div id="disp2">
+            <div align='center'>
+                <h2>ルール説明</h2>
+                <p>ルールは以下の通りです。ルールを理解できたら「ゲームへ進む」ボタンを押してください。<br>
+                    また実験を中断したい場合は「実験を中断する」ボタンを押して終了してください。</p>
+            </div>
+            <div class='rule'>
+                <p class='text'>
+                    <ol>
+                        <li>あなたと対戦相手には、それぞれ1から9が書かれたカードが<br>
+                            2枚ずつ入っている山札から2枚のカードが配られます。</li>
+                        <br>
+                        <li>このときあなたは対戦相手の1枚目のカードを見ることができます。</li>
+                        <br>
+                        <li>配られたカードに書かれた数字を足し合わせた数の大きさで<br>
+                            あなたと対戦相手は競います。</li>
+                        <br><br>
+                        <li>各セッションでは「勝負する」か「勝負から降りる」を選択してください。</li>
+                        <br>
+                        <ul>
+                            <li>
+                                「勝負する」を選択した場合、相手の2枚目のカードも開示され<br>
+                                勝負に決着がつきます。
+                            </li><br>
+                            <li>
+                                あなたの2枚のカードの和が対戦相手よりも大きい場合は<br>
+                                <font size="+1">100</font>ポイントを獲得し、逆に小さい場合は<font size="+1">70</font>ポイント失います。<br>
+                                あなたと対戦相手の2枚のカードの和が等しい場合は<font size="+1">30</font>ポイント失います。<br>
+                            </li>
+                            <br>
+                            <li>「勝負から降りる」を選択した場合、<font size="+1">30</font>ポイントを失います。</li>
+                        </ul>
+                        <br>
+                        <li>あなたは、はじめ<font size="+1">1000</font>ポイントを所持しています。</li>
+                        <br>
+                        <li>この勝負を100回繰り返して所持ポイントをできるだけ増やしてください。</li>
+                    </ol>
+                    <br>
+                </p>
+                <figure class='image'><img src="/static/rule_figure.png" width=550px></figure>
+            </div>
+            <div align='center' class="Cards">
+                <button id='next' class='playButton'>ゲームへ進む</button>
+            </div>
+            
+        </div>
+        <div id="disp3">
+            <div class="Cards" align='center'>
+                <div class="cardName">相手の手札</div>
+                <div id="houseCard1Front" class="frontHouse"></div>
+                <div id="houseCard1Back" class="back"></div>
+                <div id="houseCard2Front" class="frontHouse"></div>
+                <div id="houseCard2Back" class="back"></div>
+            </div>
+            <div id="resultWord_red" class="result" align="center">勝ち！</div>
+            <div id="resultWord_blue" class="result" align="center">負け...</div>
+            <div id="resultWord" class="result" align="center"></div>
+            <div class="Cards" align='center'>
+                <div class="cardName">自分の手札</div>
+                <div id="playerCard1Front" class="frontPlayer"></div>
+                <div id="playerCard1Back" class="back"></div>
+                <div id="playerCard2Front" class="frontPlayer"></div>
+                <div id="playerCard2Back" class="back"></div>
+            </div>
+            <div class="Cards" align='center'>
+                <div class="resultName">現在のスコア : </div>
+                <div id="numPoint" class="numPoint"></div>
+                <div class="resultName">現在のセッション : </div>
+                <div id="num_iter" class="numPoint"></div>
+            </div>
+            <div class="Cards" align="center">
+                <button disabled id="betNormal" class='playButton'>勝負する</button>
+                <button disabled id="betRec" class='playButtonRec'>勝負する（おすすめ）</button>
+                <button disabled id="foldNormal" class='playButton'>勝負から降りる</button>
+                <button disabled id="foldRec" class='playButtonRec'>勝負から降りる（おすすめ）</button>
+            </div>
+        </div>
+        <div align="center">
+            <button id="stop" class="playButton">実験を中断する</button>
+        </div>
+        <div id="disp4" align='center'>
+            <p>実験にご協力いただきありがとうございました！</p>
+            <p>ボタンを押すとあなたのユーザーIDが表示されます。</p>
+            <button disabled id="finish" class="playButton">ユーザーIDを表示する</button>
+            <hr><br>
+            <p>あなたのユーザーID</p>
+            <div id="YourId" class="result"></div>
+            <p>あなたのスコア</p>
+            <div id="finalScore" class="result"></div>
+        </div>
+        <div id="disp5" align="center">
+            <p>実験は中断されました。</p>
+        </div>
+    </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/test.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+
+<body>
+    <div class="header">
+        IndexHeader
+    </div>
+    <h1>インデックス</h1>
+    <div class="footer">
+        いんでっくすふったー
+    </div>
+
+    <div>
+        Flaskのrender_templateを使って渡した変数が表示されます。{{test_str}}
+    </div>
+
+    <button id='testButton'>
+        押せるだけ。jsテスト用
+    </button>
+
+    <a href = "{{ url_for('start') }}">
+        押すと画面遷移
+    </a>
+</body>
+
+</html>

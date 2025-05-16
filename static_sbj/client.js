@@ -376,7 +376,7 @@ window.onload = () => {
                     success_session, fail_session
                 )
             }, 1000)
-       })
+        })
     }, false)
     
     stop_button.addEventListener('click', () => {

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/start.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/start.css') }}">
+    <meta charset="UTF-8">
+    <title>Simplified Black Jack</title>
+</head>
+
+<body>
+    <h1 align='center'>Simplified BlackJack</h1>
+    <div align='center'>
+        <p>実験に関する注意事項はクラウドワークスに記載してあります。</p>
+        <p>よろしければ以下のボタンを押して実験を始めてください。</p>
+        <a class="playButton" href="{{ url_for('rule') }}"> 同意して実験を開始する </a>
+    </div>
+</body>
+
+</html>
